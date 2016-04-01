@@ -35,6 +35,5 @@ EXPOSE 8080
 WORKDIR $PENTAHO_HOME/biserver-ce/
 
 RUN chmod +x $PENTAHO_HOME/biserver-ce/start-pentaho.sh
-RUN cat start-pentaho.sh
 
 CMD ["/opt/pentaho/biserver-ce/start-pentaho.sh"]
