@@ -23,9 +23,11 @@ RUN rm -f /tmp/biserver-ce-${BISERVER_TAG}.zip
 RUN sed -i -e 's/\(exec ".*"\) start/\1 run/' $PENTAHO_HOME/biserver-ce/tomcat/bin/startup.sh && \
     chmod +x $PENTAHO_HOME/biserver-ce/start-pentaho.sh
 
-RUN curl -j -k -L "https://sourceforge.net/projects/jtds/files/jtds/1.3.1/jtds-1.3.1-dist.zip/download" -o /tmp/jtds-1.3.1-dist.zip
-RUN unzip -q /tmp/jtds-1.3.1-dist.zip -d /tmp/jtds-1.3.1-dist/ && rm -f /tmp/jtds-1.3.1-dist.zip
-RUN cp /tmp/jtds-1.3.1-dist/jtds-1.3.1.jar $PENTAHO_HOME/biserver-ce/tomcat/lib/
+ENV JTDS_VERSION 1.2.8
+
+RUN curl -j -k -L "https://sourceforge.net/projects/jtds/files/jtds/${JTDS_VERSION}/jtds-${JTDS_VERSION}-dist.zip/download" -o /tmp/jtds-${JTDS_VERSION}-dist.zip
+RUN unzip -q /tmp/jtds-${JTDS_VERSION}-dist.zip -d /tmp/jtds-${JTDS_VERSION}-dist/ && rm -f /tmp/jtds-${JTDS_VERSION}-dist.zip
+RUN cp /tmp/jtds-${JTDS_VERSION}-dist/jtds-${JTDS_VERSION}.jar $PENTAHO_HOME/biserver-ce/tomcat/lib/
 
 ENV PENTAHO_JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk-amd64
 ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk-amd64
