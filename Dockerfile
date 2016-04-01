@@ -20,6 +20,7 @@ RUN apt-get update && \
 RUN curl -j -k -L "https://sourceforge.net/projects/pentaho/files/Business%20Intelligence%20Server/${BISERVER_VERSION}/biserver-ce-${BISERVER_TAG}.zip/download" -o /tmp/biserver-ce-${BISERVER_TAG}.zip \
     && unzip -q /tmp/biserver-ce-${BISERVER_TAG}.zip -d $PENTAHO_HOME
 RUN rm -f /tmp/biserver-ce-${BISERVER_TAG}.zip
+RUN rm -f $PENTAHO_HOME/biserver-ce/promptuser.sh
 RUN sed -i -e 's/\(exec ".*"\) start/\1 run/' $PENTAHO_HOME/biserver-ce/tomcat/bin/startup.sh && \
     chmod +x $PENTAHO_HOME/biserver-ce/start-pentaho.sh
 
