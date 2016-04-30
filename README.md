@@ -1,2 +1,6 @@
 # pentaho-biserver
-Pentaho BI Server Docker Image
+Docker image for Pentaho BI Server 
+
+Includes:
+* Pentaho BI Server 6
+* MS SQL Server jTDS Driver
