@@ -28,7 +28,7 @@ ENV JTDS_VERSION 1.3.1
 
 RUN curl -j -k -L "https://sourceforge.net/projects/jtds/files/jtds/${JTDS_VERSION}/jtds-${JTDS_VERSION}-dist.zip/download" -o /tmp/jtds-${JTDS_VERSION}-dist.zip
 RUN unzip -q /tmp/jtds-${JTDS_VERSION}-dist.zip -d /tmp/jtds-${JTDS_VERSION}-dist/ && rm -f /tmp/jtds-${JTDS_VERSION}-dist.zip
-RUN cp /tmp/jtds-${JTDS_VERSION}-dist/jtds-${JTDS_VERSION}.jar $PENTAHO_HOME/biserver-ce/tomcat/lib/
+RUN cp /tmp/jtds-${JTDS_VERSION}-dist/jtds-${JTDS_VERSION}.jar $PENTAHO_HOME/pentaho-server/tomcat/lib/
 
 ENV PENTAHO_JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk-amd64
 ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk-amd64
